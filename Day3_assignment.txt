@@ -1,0 +1,883 @@
+Q1. Student Management System
+
+
+User Story:
+
+A school wants to maintain student information such as name, age, and marks.
+
+
+Requirements:
+
+Create a Student class with:
+
+- name
+
+- age
+
+- marks
+
+- display_details() method
+
+- calculate_grade() method
+
+
+Create 3 student objects and display their details and grades.
+
+
+Answer:
+
+
+class School:
+
+    def __init__(self,name,age,marks):
+
+        self.name=name
+
+        self.age=age
+
+        self.marks=marks
+
+
+    def display_details(self):
+
+        print("Name: ",self.name)
+
+        print("Age: ",self.age)
+
+        print("Marks: ",self.marks)
+
+
+    def calculate_grade(self):
+
+        if self.marks>90:
+
+            print("Grade A")
+
+        elif self.marks>80:
+
+            print("Grade B")
+
+        elif self.marks>70:
+
+            print("Grade C")
+
+        elif self.marks>60:
+
+            print("Grade D")
+
+        elif self.marks>50:
+
+            print("Grade E")
+
+        else:
+
+            print("Fail")
+
+
+student1=School("Anu",18,90)
+
+student2=School("Somesh",17,73)
+
+student3=School("Raj",16,50)
+
+
+student1.display_details()
+
+student1.calculate_grade()
+
+
+student2.display_details()
+
+student2.calculate_grade()
+
+
+student3.display_details()
+
+student3.calculate_grade()
+
+
+--------------------------------------------------
+
+
+Q2. Bank Account
+
+
+User Story:
+
+A bank wants to maintain customer accounts and allow customers to deposit and withdraw money.
+
+
+Requirements:
+
+Create a BankAccount class with:
+
+- Account holder name
+
+- Account number
+
+- Balance
+
+- deposit() method
+
+- withdraw() method
+
+- show_balance() method
+
+
+Challenge:
+
+Don't allow withdrawal if the balance is insufficient.
+
+
+Answer:
+
+
+class BankAccount:
+
+    def __init__(self,accname,accno,balance):
+
+        self.accname=accname
+
+        self.accno=accno
+
+        self.balance = balance
+
+
+    def deposit(self,amount):
+
+        self.balance+=amount
+
+        print(self.accname," After depositing Balance:",self.balance)
+
+
+    def withdraw(self,amount):
+
+        if amount<=self.balance:
+
+            self.balance-=amount
+
+            print(self.accname ," After withdraw Balance:",self.balance)
+
+        else:
+
+            print("Insufficient balance")
+
+
+    def show_balance(self):
+
+        print("Balance:",self.balance)
+
+
+acc1=BankAccount("Harry",123456778,90000)
+
+acc2=BankAccount("Supreeth",4567812122,50000)
+
+
+acc1.deposit(10000)
+
+acc1.withdraw(5000)
+
+acc1.show_balance()
+
+
+acc2.deposit(90000)
+
+acc2.withdraw(1000)
+
+acc2.show_balance()
+
+
+--------------------------------------------------
+
+
+Q3. Employee Salary System
+
+
+User Story:
+
+A company wants to store employee details and calculate their annual salary.
+
+
+Requirements:
+
+Create an Employee class with:
+
+- Name
+
+- Employee ID
+
+- Monthly salary
+
+
+Methods:
+
+- display_details()
+
+- calculate_annual_salary()
+
+
+Create 3 employees and display their annual salaries.
+
+
+Answer:
+
+
+class Employee_System:
+
+    def __init__(self, name, empId, sal):
+
+        self.name=name
+
+        self.empId=empId
+
+        self.sal=sal
+
+
+    def display_details(self):
+
+        print(f"Employee Name: {self.name}\nEmployee Id: {self.empId}\nMonthly Salary: {self.sal}")
+
+
+    def calculate_annual_salary(self):
+
+        total_sal=self.sal*12
+
+        print(f"Annual Salary: {total_sal}")
+
+
+emp1=Employee_System("Aachi",543332,30000)
+
+emp2=Employee_System("Kanchu",523546,40000)
+
+emp3=Employee_System("Suchi",523598,60000)
+
+
+emp1.display_details()
+
+emp1.calculate_annual_salary()
+
+
+emp2.display_details()
+
+emp2.calculate_annual_salary()
+
+
+emp3.display_details()
+
+emp3.calculate_annual_salary()
+
+
+--------------------------------------------------
+
+
+Q4. Shopping Cart
+
+
+User Story:
+
+An online shopping application needs to store product details and calculate the total price.
+
+
+Requirements:
+
+Create a Product class with:
+
+- Product name
+
+- Price
+
+- Quantity
+
+
+Create a method:
+
+- calculate_total()
+
+
+Formula:
+
+total = price × quantity
+
+
+Create 3 product objects and calculate the total cost.
+
+
+Challenge:
+
+Apply a 10% discount if the total is greater than ₹5,000.
+
+
+Answer:
+
+
+class Product:
+
+
+    def __init__(self,pname,price,quant):
+
+        self.pname=pname
+
+        self.price=price
+
+        self.quant = quant
+
+
+    def calculate_total(self):
+
+        return self.price *self.quant
+
+
+prod1=Product('Rice',300,20)
+
+prod2=Product('Sugar',70,7)
+
+prod3=Product('Ground nuts',100,2)
+
+
+cart_total = (
+
+    prod1.calculate_total() +
+
+    prod2.calculate_total() +
+
+    prod3.calculate_total()
+
+)
+
+
+if cart_total>5000:
+
+    cart_total-=cart_total*0.1
+
+
+print("Final cart price: ",cart_total)
+
+
+--------------------------------------------------
+
+
+Q5. ATM System
+
+
+User Story:
+
+An ATM should protect the customer's PIN and balance.
+
+
+Requirements:
+
+Create an ATM class with:
+
+- __pin
+
+- __balance
+
+
+Methods:
+
+- check_pin()
+
+- deposit()
+
+- withdraw()
+
+- show_balance()
+
+
+Rules:
+
+Correct PIN → Allow transaction
+
+Wrong PIN → Display "Invalid PIN"
+
+Withdrawal greater than balance → "Insufficient Balance"
+
+
+Answer:
+
+
+class ATM:
+
+    def __init__(self,pin,balance):
+
+        self.__pin=pin
+
+        self.__balance=balance
+
+
+    def check_pin(self,epin):
+
+        if self.__pin==epin:
+
+            return True
+
+        else:
+
+            print("Invalid PIN")
+
+            return False
+
+
+    def deposit(self,amount,pin):
+
+        if self.check_pin(pin):
+
+            self.__balance+=amount
+
+            print("Money deposited ")
+
+        else:
+
+            print("Invalid PIN")
+
+
+    def withdraw(self,amount,pin):
+
+        if self.check_pin(pin):
+
+            if amount<=self.__balance:
+
+                self.__balance-=amount
+
+            else:
+
+                print("Insufficient Balance")
+
+        else:
+
+            print("Invalid PIN")
+
+
+    def show_balance(self,pin):
+
+        if self.check_pin(pin):
+
+            print(self.__balance)
+
+        else:
+
+            print("Invalid PIN")
+
+
+a = ATM(1234,50000)
+
+a.check_pin(2345)
+
+a.deposit(2000,1213)
+
+a.withdraw(1000,1234)
+
+a.show_balance(1234)
+
+
+--------------------------------------------------
+
+
+Q6. Person → Student
+
+
+User Story:
+
+A school system stores common information about people.
+
+Students have additional information such as course.
+
+
+Requirements:
+
+
+Parent Class:
+
+Person
+
+- Name
+
+- Age
+
+- display_person()
+
+
+Child Class:
+
+Student
+
+- Course
+
+- display_student()
+
+
+Use:
+
+super().__init__()
+
+
+Answer:
+
+
+class Parent:
+
+    def __init__(self,name,age):
+
+        self.name=name
+
+        self.age=age
+
+
+    def display_person(self):
+
+        print(f"Person name : {self.name} - Age : {self.age}")
+
+
+class Student(Parent):
+
+    def __init__(self,name,age,course):
+
+        super().__init__(name,age)
+
+        self.course=course
+
+
+    def display_student(self):
+
+        self.display_person()
+
+        print("Course:",self.course)
+
+
+s1=Student("sree",15,"Python")
+
+
+s1.display_student()
+
+
+--------------------------------------------------
+
+
+Q7. Vehicle → Car
+
+
+User Story:
+
+A vehicle company wants to maintain common vehicle information while storing additional information for cars.
+
+
+Requirements:
+
+
+Vehicle:
+
+- Brand
+
+- Model
+
+- display_vehicle()
+
+
+Car:
+
+- Number of doors
+
+- display_car()
+
+
+Answer:
+
+
+class Vehicle:
+
+    def __init__(self,brand,model):
+
+        self.brand=brand
+
+        self.model=model
+
+
+    def display_vehicle(self):
+
+        print("BRAND:",self.brand,"MODEL:",self.model)
+
+
+class Car(Vehicle):
+
+    def __init__(self,brand,model,no_of_doors):
+
+        super().__init__(brand,model)
+
+        self.no_of_doors=no_of_doors
+
+
+    def display_car(self):
+
+        self.display_vehicle()
+
+        print("NUMBER OF DOORS:",self.no_of_doors)
+
+
+c1 = Car("Toyota","Innova",4)
+
+c2 = Car("Hyundai","Creta",5)
+
+
+c1.display_car()
+
+
+c2.display_car()
+
+
+--------------------------------------------------
+
+
+Q8. Animal Sounds
+
+
+User Story:
+
+A zoo application needs to represent different animals.
+
+
+Requirements:
+
+Animal
+
+Dog
+
+Cat
+
+Cow
+
+
+Each child class should have:
+
+sound()
+
+
+Answer:
+
+
+class Animal:
+
+    def sound(self):
+
+        print("Animal makes a sound")
+
+
+class Dog(Animal):
+
+    def sound(self):
+
+        print("Woof")
+
+
+class Cat(Animal):
+
+    def sound(self):
+
+        print("Meow")
+
+
+class Cow(Animal):
+
+    def sound(self):
+
+        print("Moo")
+
+
+dog = Dog()
+
+cat = Cat()
+
+cow = Cow()
+
+
+dog.sound()
+
+cat.sound()
+
+cow.sound()
+
+
+--------------------------------------------------
+
+
+Q9. Payment System
+
+
+User Story:
+
+An online shopping application accepts different payment methods.
+
+
+Requirements:
+
+
+Payment
+
+
+CreditCard
+
+UPI
+
+Cash
+
+
+Each class should have:
+
+
+pay(amount)
+
+
+Answer:
+
+
+class Payment:
+
+    def pay(self, amount):
+
+        print("Payment Processing")
+
+
+class CreditCard(Payment):
+
+    def pay(self, amount):
+
+        print(f"Paid ₹{amount} using Credit Card")
+
+
+class UPI(Payment):
+
+    def pay(self, amount):
+
+        print(f"Paid ₹{amount} using UPI")
+
+
+class Cash(Payment):
+
+    def pay(self, amount):
+
+        print(f"Paid ₹{amount} using Cash")
+
+
+cc = CreditCard()
+
+upi = UPI()
+
+cash = Cash()
+
+
+cc.pay(500)
+
+upi.pay(500)
+
+cash.pay(500)
+
+
+--------------------------------------------------
+
+
+Q10. Banking Customer System
+
+
+User Story:
+
+A bank has different account types:
+
+- Savings Account
+
+- Current Account
+
+
+Requirements:
+
+
+Parent Class:
+
+BankAccount
+
+
+Methods:
+
+- deposit()
+
+- withdraw()
+
+- show_balance()
+
+
+Child Classes:
+
+- SavingsAccount
+
+- CurrentAccount
+
+
+Savings Interest = 5%
+
+Current Interest = 2%
+
+
+Answer:
+
+
+class BankAccount:
+
+    def __init__(self, name, accno, balance):
+
+        self.name = name
+
+        self.accno = accno
+
+        self.balance = balance
+
+
+    def deposit(self, amount):
+
+        self.balance += amount
+
+
+    def withdraw(self, amount):
+
+        if amount <= self.balance:
+
+            self.balance -= amount
+
+        else:
+
+            print("Insufficient Balance")
+
+
+    def show_balance(self):
+
+        print("Balance:", self.balance)
+
+
+class SavingsAccount(BankAccount):
+
+    def calculate_interest(self):
+
+        interest = self.balance * 0.05
+
+        print("Savings Interest:", interest)
+
+
+class CurrentAccount(BankAccount):
+
+    def calculate_interest(self):
+
+        interest = self.balance * 0.02
+
+        print("Current Interest:", interest)
+
+
+savings1 = SavingsAccount("Anil", 101, 50000)
+
+current1 = CurrentAccount("Rahul", 102, 50000)
+
+
+savings1.show_balance()
+
+savings1.calculate_interest()
+
+
+current1.show_balance()
+
+current1.calculate_interest()

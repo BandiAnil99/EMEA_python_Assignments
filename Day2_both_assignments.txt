@@ -1,0 +1,1014 @@
+PYTHON DATA STRUCTURES
+
+
+--------------------------------------------------
+
+Q1. Student Marks Analyzer
+
+
+User Story:
+
+A teacher wants to analyze the marks of students and identify students who scored above 75.
+
+
+Given:
+
+
+students = [
+
+    ("Anu", 85),
+
+    ("Ravi", 62),
+
+    ("Maya", 91),
+
+    ("John", 74),
+
+    ("Sara", 88)
+
+]
+
+
+Task:
+
+Use list comprehension and tuples to create a list containing the names of students who scored above 75.
+
+
+Answer:
+
+
+students = [
+
+    ("Anu", 85),
+
+    ("Ravi", 62),
+
+    ("Maya", 91),
+
+    ("John", 74),
+
+    ("Sara", 88)
+
+]
+
+
+names = [name for (name, marks) in students if marks > 75]
+
+print(names)
+
+
+Output:
+
+['Anu', 'Maya', 'Sara']
+
+
+--------------------------------------------------
+
+Q2. Shopping Price Calculator
+
+
+User Story:
+
+A customer has a list of product prices and wants to calculate the prices after applying a 10% discount.
+
+
+Given:
+
+
+prices = [500, 1200, 750, 2000, 300]
+
+
+Task:
+
+Use list comprehension to create a new list containing the discounted prices.
+
+
+Answer:
+
+
+prices = [500, 1200, 750, 2000, 300]
+
+
+new_prices = [i - i * 0.1 for i in prices]
+
+
+print(new_prices)
+
+
+Output:
+
+[450.0, 1080.0, 675.0, 1800.0, 270.0]
+
+
+--------------------------------------------------
+
+Q3. Employee Performance
+
+
+User Story:
+
+An HR manager stores employee names and performance scores as tuples.
+
+
+Given:
+
+
+employees = [
+
+    ("Arun", 65),
+
+    ("Meera", 82),
+
+    ("Rahul", 91),
+
+    ("Diya", 76),
+
+    ("Kiran", 55)
+
+]
+
+
+Task:
+
+Use list comprehension to create a list of tuples containing only employees whose score is 75 or above.
+
+
+Answer:
+
+
+employees = [
+
+    ("Arun", 65),
+
+    ("Meera", 82),
+
+    ("Rahul", 91),
+
+    ("Diya", 76),
+
+    ("Kiran", 55)
+
+]
+
+
+emp = [(name, marks) for (name, marks) in employees if marks >= 75]
+
+
+print(emp)
+
+
+Output:
+
+
+[('Meera', 82), ('Rahul', 91), ('Diya', 76)]
+
+
+--------------------------------------------------
+
+Q4. Temperature Monitoring
+
+
+User Story:
+
+A weather application records temperatures during a week.
+
+
+Given:
+
+
+temperatures = (32, 28, 35, 30, 38, 25, 34)
+
+
+Task:
+
+Create:
+
+1. Temperatures greater than 30
+
+2. Fahrenheit values
+
+
+Answer:
+
+
+temperatures = (32, 28, 35, 30, 38, 25, 34)
+
+
+temp = [val for val in temperatures if val > 30]
+
+
+ftemp = [(val * 9 / 5) + 32 for val in temperatures if val > 30]
+
+
+print(temp)
+
+print(ftemp)
+
+
+Output:
+
+
+[32, 35, 38, 34]
+
+
+[89.6, 95.0, 100.4, 93.2]
+
+
+--------------------------------------------------
+
+Q5. Online Store Inventory
+
+
+User Story:
+
+An online store stores product information as tuples.
+
+
+Given:
+
+
+products = [
+
+    ("Laptop", 55000, 5),
+
+    ("Mouse", 800, 0),
+
+    ("Keyboard", 1500, 8),
+
+    ("Monitor", 12000, 3),
+
+    ("Printer", 9000, 0)
+
+]
+
+
+Task:
+
+Create a list containing product names that:
+
+1. Cost more than ₹1000
+
+2. Are in stock
+
+
+Answer:
+
+
+products = [
+
+    ("Laptop", 55000, 5),
+
+    ("Mouse", 800, 0),
+
+    ("Keyboard", 1500, 8),
+
+    ("Monitor", 12000, 3),
+
+    ("Printer", 9000, 0)
+
+]
+
+
+names = [
+
+    name
+
+    for (name, cost, stock) in products
+
+    if cost > 1000 and stock > 0
+
+]
+
+
+print(names)
+
+
+Output:
+
+
+['Laptop', 'Keyboard', 'Monitor']
+
+
+==================================================
+
+ASSIGNMENT
+
+==================================================
+
+
+Q1. Smart Shopping Cart
+
+
+User Story:
+
+A customer enters the names and prices of 5 products they want to buy.
+
+
+Requirements:
+
+- Store names in a list
+
+- Store prices in a list
+
+- Calculate total using a function
+
+- If total > ₹2000 give 10% discount
+
+
+Answer:
+
+
+names = []
+
+prices = []
+
+
+for i in range(1, 6):
+
+    name = input(f"Enter product {i} name: ")
+
+    price = int(input(f"Enter product {i} price: "))
+
+
+    names.append(name)
+
+    prices.append(price)
+
+
+def total_price(prices):
+
+
+    total = sum(prices)
+
+
+    if total > 2000:
+
+        total = total - total * 0.1
+
+
+    print("Total price:", total)
+
+
+total_price(prices)
+
+
+--------------------------------------------------
+
+Q2. Student Result Analyzer
+
+
+User Story:
+
+Analyze marks of 5 subjects.
+
+
+Answer:
+
+
+marks = []
+
+
+for i in range(1, 6):
+
+    mark = int(input())
+
+    marks.append(mark)
+
+
+def calculation(marks):
+
+
+    total = sum(marks)
+
+
+    average = total / len(marks)
+
+
+    if average >= 90:
+
+        print("A")
+
+
+    elif average >= 75:
+
+        print("B")
+
+
+    elif average >= 50:
+
+        print("C")
+
+
+    else:
+
+        print("Fail")
+
+
+    print("Highest:", max(marks))
+
+    print("Lowest:", min(marks))
+
+
+calculation(marks)
+
+
+--------------------------------------------------
+
+Q3. Simple Bank Account
+
+
+User Story:
+
+Allow customer to:
+
+1. Check Balance
+
+2. Deposit
+
+3. Withdraw
+
+4. Exit
+
+
+Answer:
+
+
+account = {}
+
+
+for i in range(2):
+
+    key = input("Enter key:")
+
+    value = input("Enter value:")
+
+    account[key] = value
+
+
+def check_balance(account):
+
+    print(account["balance"])
+
+
+def deposit(account, amnt):
+
+    account["balance"] = int(account["balance"]) + amnt
+
+    print(account["balance"])
+
+
+def withdraw(account, amnt):
+
+
+    if amnt > account["balance"\]:
+
+        print("Amount exceeds balance")
+
+
+    else:
+
+        account["balance"] -= amnt
+
+        print("Balance:", account["balance"])
+
+
+while True:
+
+
+    print("1.Check Balance")
+
+    print("2.Deposit")
+
+    print("3.Withdraw")
+
+    print("4.Exit")
+
+
+    opt = int(input("Enter option:"))
+
+
+    if opt == 1:
+
+        check_balance(account)
+
+
+    elif opt == 2:
+
+        amnt = int(input("Enter amount:"))
+
+        deposit(account, amnt)
+
+
+    elif opt == 3:
+
+        amnt = int(input("Enter amount:"))
+
+        withdraw(account, amnt)
+
+
+    elif opt == 4:
+
+        break
+
+
+--------------------------------------------------
+
+Q4. Restaurant Order System
+
+
+User Story:
+
+Allow customer to order multiple items.
+
+
+Answer:
+
+
+menu = {
+
+    "pizza": 250,
+
+    "burger": 150,
+
+    "pasta": 200,
+
+    "juice": 80
+
+}
+
+
+ordered_items = []
+
+
+def final_price(ordered_items):
+
+
+    total = 0
+
+
+    for i in ordered_items:
+
+        total += menu[i]
+
+
+    if total > 1000:
+
+        total = total - total * 0.15
+
+        print("Eligible for 15% discount")
+
+
+    print("Final Price:", total)
+
+
+while True:
+
+
+    print("Menu")
+
+
+    for item, price in menu.items():
+
+        print(item, "-", price)
+
+
+    item = input("Enter item:").lower()
+
+
+    if item in menu:
+
+        ordered_items.append(item)
+
+
+    else:
+
+        print("Item not available")
+
+
+    ch = input("Order more? y/n:")
+
+
+    if ch == 'n':
+
+        final_price(ordered_items)
+
+        break
+
+
+--------------------------------------------------
+
+Q5. Unique Username Checker
+
+
+User Story:
+
+Check whether username already exists.
+
+
+Answer:
+
+
+existing_users = {
+
+    "anu",
+
+    "rahul",
+
+    "meera",
+
+    "arun",
+
+    "john"
+
+}
+
+
+while True:
+
+
+    user_name = input("Enter username:").lower()
+
+
+    if user_name in existing_users:
+
+        print("Username already taken")
+
+
+    else:
+
+        existing_users.add(user_name)
+
+
+    cont = input("Continue? y/n:")
+
+
+    if cont == 'n':
+
+        break
+
+
+--------------------------------------------------
+
+Q6. Patient Temperature Monitor
+
+
+User Story:
+
+Monitor temperature of 5 patients.
+
+
+Answer:
+
+
+def classification(temp):
+
+
+    if temp < 37:
+
+        return "Normal"
+
+
+    elif temp <= 38:
+
+        return "Mild Fever"
+
+
+    else:
+
+        return "High Fever"
+
+
+hsp = {}
+
+cnt = 0
+
+
+for i in range(5):
+
+
+    name = input("Enter patient name:")
+
+    temp = int(input("Enter temperature:"))
+
+
+    hsp[name] = temp
+
+
+for name, temp in hsp.items():
+
+
+    status = classification(temp)
+
+
+    print(name, ":", status)
+
+
+    if status != "Normal":
+
+        cnt += 1
+
+
+print("FEVERED Patients:", cnt)
+
+
+--------------------------------------------------
+
+Q7. Library Book Tracker
+
+
+User Story:
+
+Track overdue books.
+
+
+Answer:
+
+
+library = []
+
+
+def overdue_books(bname, name, days):
+
+
+    if days > 7:
+
+        return "Overdue"
+
+
+    return "Not Overdue"
+
+
+while True:
+
+
+    bname = input("Book name:")
+
+    name = input("Person name:")
+
+    days = int(input("Borrowed days:"))
+
+
+    library.append((bname, name, days))
+
+
+    ch = input("Add more? y/n:")
+
+
+    if ch == 'n':
+
+        break
+
+
+count = 0
+
+
+for bname, name, days in library:
+
+
+    if overdue_books(bname, name, days) == "Overdue":
+
+
+        print(bname, "-", name, "-", days)
+
+
+        count += 1
+
+
+print("Overdue books:", count)
+
+
+--------------------------------------------------
+
+Q8. Car Rental Calculator
+
+
+User Story:
+
+Calculate rental amount.
+
+
+Answer:
+
+
+cars = {
+
+    "small car": 1500,
+
+    "suv": 2500,
+
+    "luxury car": 5000
+
+}
+
+
+def rental_cost(c, days):
+
+
+    amount = cars[c] * days
+
+
+    if days > 7:
+
+        amount = amount - amount * 0.1
+
+
+    print(amount)
+
+
+c = input("Enter car type:")
+
+days = int(input("Enter number of days:"))
+
+
+if c in cars:
+
+    rental_cost(c, days)
+
+
+--------------------------------------------------
+
+Q9. Movie Ticket Booking
+
+
+User Story:
+
+Calculate total movie ticket amount.
+
+
+Answer:
+
+
+num = int(input("Enter number of people:"))
+
+
+ages = []
+
+
+prices = 0
+
+
+free = 0
+
+child = 0
+
+adult = 0
+
+senior = 0
+
+
+def ticket_price(age):
+
+
+    if age >= 60:
+
+        return 120
+
+
+    elif age >= 13:
+
+        return 200
+
+
+    elif age >= 5:
+
+        return 100
+
+
+    else:
+
+        return 0
+
+
+for i in range(num):
+
+
+    age = int(input())
+
+
+    ages.append(age)
+
+
+    if age < 5:
+
+        free += 1
+
+
+    elif age <= 12:
+
+        child += 1
+
+
+    elif age <= 59:
+
+        adult += 1
+
+
+    else:
+
+        senior += 1
+
+
+    prices += ticket_price(age)
+
+
+print("Free tickets:", free)
+
+print("Child tickets:", child)
+
+print("Adult tickets:", adult)
+
+print("Senior tickets:", senior)
+
+print("Total Price:", prices)
+
+
+--------------------------------------------------
+
+Q10. Employee Salary Analyzer
+
+
+User Story:
+
+Analyze employee salaries.
+
+
+Answer:
+
+
+employees = {
+
+    "Anu": 45000,
+
+    "Rahul": 65000,
+
+    "Meera": 55000,
+
+    "Arun": 80000
+
+}
+
+
+def highest_salary(emp):
+
+
+    name = max(emp, key=emp.get)
+
+
+    print("Highest Paid Employee:", name, emp[name])
+
+
+def average_salary(emp):
+
+
+    avg = sum(emp.values()) / len(emp)
+
+
+    print("Average Salary:", avg)
+
+
+def bonus_calculation(emp):
+
+
+    print("Employees With Bonus:")
+
+
+    for name, salary in emp.items():
+
+
+        if salary < 50000:
+
+            print(name, ":", salary + salary * 0.10)
+
+
+print("Employee Details:")
+
+
+for name, salary in employees.items():
+
+    print(name, ":", salary)
+
+
+highest_salary(employees)
+
+
+low = min(employees, key=employees.get)
+
+
+print("Lowest Paid Employee:", low, employees[low])
+
+
+average_salary(employees)
+
+
+print("Employees Earning More Than 60000:")
+
+
+for name, salary in employees.items():
+
+
+   if salary > 60000:
+
+        print(name, ":", salary)
+
+
+bonus_calculation(employees)

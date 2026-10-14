@@ -1,0 +1,822 @@
+1. Supermarket Discount
+
+
+User Story:
+
+A supermarket wants to automatically calculate discounts for customers.
+
+If the customer's bill is ₹1,000 or more, they should receive a 20% discount.
+
+If the bill is ₹500 or more, they receive a 10% discount.
+
+Otherwise, there is no discount.
+
+
+Task:
+
+Write a Python program that takes the bill amount from the user and calculates the discount.
+
+
+Answer:
+
+
+bill = int(input("Enter your bill:"))
+
+
+if bill >= 1000:
+
+    discount = bill * 0.2
+
+elif bill >= 500:
+
+    discount = bill * 0.1
+
+else:
+
+    discount = 0
+
+
+print(discount)
+
+
+
+
+--------------------------------------------------
+
+
+2. Bank Withdrawal
+
+
+User Story:
+
+A bank customer wants to withdraw money from their account.
+
+The bank should allow the withdrawal only if the requested amount is less than or equal to the available balance.
+
+
+Task:
+
+Write a program that asks for the balance and withdrawal amount and displays either
+
+"Withdrawal successful" or "Insufficient balance".
+
+
+Answer:
+
+
+balance = float(input("Enter your balance:"))
+
+amount = float(input("Enter amount you want to withdraw:"))
+
+
+if amount <= balance:
+
+    balance -= amount
+
+    print("Withdrawal successful")
+
+else:
+
+    print("Insufficient balance")
+
+
+
+
+--------------------------------------------------
+
+
+3. ATM PIN
+
+
+User Story:
+
+An ATM gives a customer a maximum of 3 attempts to enter the correct PIN.
+
+If the PIN is correct, access should be granted immediately.
+
+If all 3 attempts fail, the card should be blocked.
+
+
+Task:
+
+Write this using a while loop.
+
+
+Answer:
+
+
+pin1 = int(input("Actual pin:"))
+
+
+x = 3
+
+
+while x:
+
+    pin2 = int(input("Enter pin:"))
+
+
+    if pin1 == pin2:
+
+        break
+
+    else:
+
+        x -= 1
+
+else:
+
+    print("Card got blocked")
+
+
+
+
+--------------------------------------------------
+
+
+4. Pizza Restaurant
+
+
+User Story:
+
+A pizza shop charges ₹250 for each pizza.
+
+A customer can order multiple pizzas.
+
+The program should calculate the total bill.
+
+
+Task:
+
+Ask the customer how many pizzas they want and calculate the total.
+
+
+Answer:
+
+
+pizza_cnt = int(input("Enter number of pizza's you want:"))
+
+
+if pizza_cnt <= 0:
+
+    print("No order")
+
+else:
+
+    price = pizza_cnt * 250
+
+    print(price)
+
+
+
+
+--------------------------------------------------
+
+
+5. Shopping Cart
+
+
+User Story:
+
+A customer has five products in their shopping cart.
+
+Products costing less than ₹100 are promotional items and should not be included in the calculation.
+
+
+Task:
+
+Use a for loop and continue to calculate the total.
+
+
+Answer:
+
+
+size = 5
+
+prod = [0] * size
+
+
+price = 0
+
+
+for i in range(5):
+
+    prod[i] = float(input(f"Enter item price of {i}:"))
+
+
+    if prod[i] >= 100:
+
+        price = price + prod[i]
+
+    else:
+
+        continue
+
+
+print(price)
+
+
+
+
+--------------------------------------------------
+
+
+6. Bank Minimum Balance
+
+
+User Story:
+
+A bank requires customers to maintain a minimum balance of ₹2,000.
+
+After a withdrawal, if the balance falls below ₹2,000, the customer receives a warning.
+
+
+Answer:
+
+
+balance = float(input("Enter your current balance:"))
+
+wdraw_amount = float(input("Enter amount to withdrawal:"))
+
+
+if wdraw_amount <= balance:
+
+    balance = balance - wdraw_amount
+
+    print(balance)
+
+
+    if balance < 2000:
+
+        print("Alert ! Please maintain minimum balance of 2000")
+
+else:
+
+    print("Insufficient balance")
+
+
+
+
+--------------------------------------------------
+
+
+7. Supermarket Billing Counter
+
+
+User Story:
+
+Once the total bill reaches ₹1,000 or more, billing should stop.
+
+
+Answer:
+
+
+prod = list(map(float, input("Prices:").split()))
+
+
+total_price = 0
+
+
+for i in prod:
+
+    total_price += i
+
+
+    if total_price >= 1000:
+
+        print("Eligible for special offer")
+
+        break
+
+else:
+
+    print("Your bill:", total_price)
+
+
+
+
+--------------------------------------------------
+
+
+8. ATM Cash Dispensing
+
+
+User Story:
+
+An ATM dispenses ₹500 notes.
+
+
+Answer:
+
+
+amount = int(input("Enter amount:"))
+
+
+cnt = 0
+
+
+if amount % 500 == 0:
+
+
+    while amount:
+
+        amount -= 500
+
+        cnt += 1
+
+
+else:
+
+    print("Cancel it and Please enter amount again in multiples of 500")
+
+
+if cnt:
+
+    print("Total number of notes:", cnt)
+
+
+
+
+--------------------------------------------------
+
+
+9. School Result
+
+
+User Story:
+
+Assign grades based on marks.
+
+
+90+ → A
+
+75–89 → B
+
+50–74 → C
+
+Below 50 → Fail
+
+
+Answer (if-elif):
+
+
+marks = int(input("Enter the marks:"))
+
+
+if marks >= 90:
+
+    print("A")
+
+elif marks >= 75:
+
+    print("B")
+
+elif marks >= 50:
+
+    print("C")
+
+else:
+
+    print("Fail")
+
+
+
+
+--------------------------------------------------
+
+
+10. Parking System
+
+
+User Story:
+
+A parking lot charges ₹50 for the first hour and ₹20 for every additional hour.
+
+
+Answer:
+
+
+hours = int(input("Enter how many hours parked:"))
+
+
+price = 50
+
+
+if hours <= 0:
+
+    print("Invalid hours")
+
+elif hours == 1:
+
+    print(price)
+
+else:
+
+    hours -= 1
+
+    price += 20 * hours
+
+    print(price)
+
+
+
+
+--------------------------------------------------
+
+
+11. Grocery Store Quantity
+
+
+User Story:
+
+One apple costs ₹20.
+
+
+Answer:
+
+
+quantity = int(input("Enter number of apples:"))
+
+
+price = 20
+
+
+if quantity >= 1:
+
+    total_amnt = price * quantity
+
+    print("Total amount:", total_amnt)
+
+else:
+
+    print("Invalid Quantity")
+
+
+
+
+--------------------------------------------------
+
+
+12. Credit Card Limit
+
+
+User Story:
+
+Reduce the available credit limit after every purchase.
+
+
+Answer:
+
+
+credit_limit = int(input("Enter your credit card limit amount:"))
+
+
+while credit_limit:
+
+
+    prod_price = int(input("Enter price of prod:"))
+
+
+    if prod_price <= credit_limit:
+
+        credit_limit = credit_limit - prod_price
+
+    else:
+
+        break
+
+
+print(credit_limit)
+
+
+
+
+--------------------------------------------------
+
+
+13. Restaurant Ordering System
+
+
+User Story:
+
+Keep accepting orders until customer enters 0.
+
+
+Answer:
+
+
+cnt = 0
+
+
+while True:
+
+
+    num = int(input("Enter number:"))
+
+
+    if num == 0:
+
+        break
+
+    else:
+
+        cnt += 1
+
+
+print("Orders received:", cnt)
+
+
+
+
+--------------------------------------------------
+
+
+14. Bank Deposit Machine
+
+
+User Story:
+
+Accept deposits repeatedly until 0 is entered.
+
+
+Answer:
+
+
+balance = int(input("Available amount:"))
+
+
+while True:
+
+
+    dep_amount = int(input("Enter deposit amount:"))
+
+
+    if dep_amount == 0:
+
+        break
+
+    else:
+
+        balance += dep_amount
+
+
+print("Current balance:", balance)
+
+
+
+
+--------------------------------------------------
+
+
+15. Shopping Discount
+
+
+User Story:
+
+₹5000+ → 30%
+
+₹3000+ → 20%
+
+₹1000+ → 10%
+
+
+Answer:
+
+
+price = int(input("Enter total price:"))
+
+
+discount = 0
+
+
+if price >= 5000:
+
+    discount = price * 0.3
+
+
+elif price >= 3000:
+
+    discount = price * 0.2
+
+
+elif price >= 1000:
+
+    discount = price * 0.1
+
+
+else:
+
+    discount = 0
+
+
+final_amount = price - discount
+
+
+print("Final Amount:", final_amount)
+
+
+
+
+--------------------------------------------------
+
+
+16. Taxi Fare
+
+
+User Story:
+
+Taxi charges ₹100 base fare and ₹20 per km.
+
+
+Answer:
+
+
+no_km = int(input("Enter number of km:"))
+
+
+base_fare = 100
+
+
+final_fare = base_fare + (no_km * 20)
+
+
+print(final_fare)
+
+
+
+
+--------------------------------------------------
+
+
+17. Supermarket Queue
+
+
+User Story:
+
+Stop processing customers when customer number 6 is reached.
+
+
+Answer:
+
+
+cus_num = int(input("Enter the customer_number:"))
+
+
+for i in range(1, 11):
+
+
+    if i == cus_num:
+
+        break
+
+    else:
+
+        print(f"Customer number {i} is processed")
+
+
+
+
+--------------------------------------------------
+
+
+18. Bank Fraud Check
+
+
+User Story:
+
+Flag a transaction when:
+
+1. Amount > ₹50,000
+
+2. Account is unverified
+
+
+Answer:
+
+
+tran_amt = int(input("Enter amount:"))
+
+
+verified = input("Your account is verified or not (yes/no):")
+
+
+if tran_amt > 50000 and verified == "no":
+
+    print("Transaction is treated as flag")
+
+else:
+
+    print("Verified")
+
+
+
+
+--------------------------------------------------
+
+
+19. Mobile Recharge
+
+
+User Story:
+
+₹999 → 365 days
+
+₹499 → 84 days
+
+₹299 → 28 days
+
+
+Answer:
+
+
+recharge_amt = int(input("Enter the recharge amount:"))
+
+
+if recharge_amt == 999:
+
+    print("Successfully recharged for 365 days")
+
+
+elif recharge_amt == 499:
+
+    print("Successfully recharged for 84 days")
+
+
+elif recharge_amt == 299:
+
+    print("Successfully recharged for 28 days")
+
+
+else:
+
+    print("No recharge plan with that number. Please choose the correct one")
+
+
+
+
+--------------------------------------------------
+
+
+20. Bank Transaction Analyzer
+
+
+User Story:
+
+transactions = [500, -200, -1000, 300, -500, 2000]
+
+
+Positive values → Deposits
+
+Negative values → Withdrawals
+
+
+Task:
+
+1. Calculate total deposits
+
+2. Calculate total withdrawals
+
+3. Calculate final balance change
+
+4. Count withdrawals
+
+
+Answer:
+
+
+transactions = list(map(int, input("Enter the transactions: ").split()))
+
+
+dep = 0
+
+wd = 0
+
+final_bal = 0
+
+cnt_w = 0
+
+
+for i in transactions:
+
+
+    if i >= 0:
+
+        dep += i
+
+    else:
+
+        wd += abs(i)
+
+        cnt_w += 1
+
+
+    final_bal += i
+
+
+print("Total deposits:", dep)
+
+print("Total withdrawals:", wd)
+
+print("Final balance:", final_bal)
+
+print("Count of withdrawals:", cnt_w)
